@@ -13,15 +13,16 @@ int main() {
     cout << "Enter the position to insert: ";
     cin >> position;
 
-    arr.insert(arr.begin() + position, element); 
-    
-
-    cout << "Array after insertion: ";
-    for (int i = 0; i < arr.size(); i++) {
-        cout << arr[i] << " ";
-
+    if (position < 0 || position > arr.size()) {
+        cout << "Invalid position! Please enter a position between 0 and " << arr.size() << "." << endl;
+        // Do not insert or print the array if position is invalid
+    } else {
+        arr.insert(arr.begin() + position, element);
+        cout << "Array after insertion: ";
+        for (int i = 0; i < arr.size(); i++) {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
     }
-    cout << endl;
-
     return 0;
 }
